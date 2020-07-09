@@ -5,10 +5,10 @@ date: 2020-03-31 02:40:48 +0000
 categories: Cesgensla
 ---
 
-D'abord il y a l'aîné
-Lui qui est comme un melon
-Lui qui a un gros nez
-Lui qui sait plus son nom
+D'abord il y a l'aîné  
+Lui qui est comme un melon  
+Lui qui a un gros nez  
+Lui qui sait plus son nom  
 Monsieur tellement qui boit
 Ou tellement qu'il a bu
 Qui fait rien de ses dix doigts
