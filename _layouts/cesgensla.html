@@ -3,8 +3,55 @@ layout: default
 ---
 
 <h1>Ces Gens-Là</h1>
-{% for post in site.categories.Cesgensla %}
- <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
+
+<ul class="post-list">
+  {% for rule in page.filter %}
+  {% assign posts = site.posts %}
+  {% if rule.by_tag %}
+  {% assign posts = posts | where_exp: "post", "post.tags contains rule.by_tag" %}
+  {% endif %}
+  {% if rule.by_category %}
+  {% assign posts = posts | where_exp: "post", "post.category == rule.by_category" %}
+  {% endif %}
+  {% if rule.by_expression %}
+  {% assign posts = posts | where_exp: "post", rule.by_expression %}
+  {% endif %}
+  {% for post in posts %}
+  {% assign posts = posts | append: " " | append: post.path %}
+  {% endfor %}
+  {% endfor %}
+  {% if posts %}
+  {% assign posts = posts | split: " " | sort | uniq %}
+  {% assign posts = site.posts | where_exp: "post", "posts contains post.path" %}
+  {% else %}
+  {% assign posts = site.posts %}
+  {% endif %}
+  {% for post in posts %}
+  <li class="post-list-item" data-tags="{{ post.category | join: "Cesgensla" }}">
+    <a class="post-item-link" href="{{ post.url | relative_url }}" data-date="{{ post.date | date: "%m-%d"  }}">
+      {{ post.title | escape }}
+    </a>
+    <div class="post-item-meta">
+       {% assign m = post.date | date: "%-m" %}
+	{{ post.date | date: "%-d" }} de
+		{% case m %}
+  {% when '1' %}enero
+  {% when '2' %}febrero
+  {% when '3' %}marzo
+  {% when '4' %}abril
+  {% when '5' %}mayo
+  {% when '6' %}junio
+  {% when '7' %}julio
+  {% when '8' %}agosto
+  {% when '9' %}septiembre
+  {% when '10' %}octubre
+  {% when '11' %}noviembre
+  {% when '12' %}diciembre
+{% endcase %}del año 
+{{ post.date | date: "%Y" }}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
 {{ content }}
