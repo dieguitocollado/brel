@@ -2,8 +2,7 @@
 title: "Ep. 1 - Las Sonatas de Ramón del Valle-Inclán"
 layout: post
 date: 2020-03-31 02:40:48 +0000
-categories: 
-- cesgensla
+categories: Cesgensla
 ---
 
 D'abord il y a l'aîné
