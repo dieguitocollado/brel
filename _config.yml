@@ -83,6 +83,14 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 collections:
   categories:
     output: true
+    
+defaults:
+  -
+    scope:
+      path: ""
+      type: categories
+    values:
+      layout: "categories"
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link

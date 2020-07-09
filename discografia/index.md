@@ -1,5 +1,5 @@
 ---
-layout: discografia2
+layout: categories
 title: Discografía
 nav_order: 3
 has_children: true
